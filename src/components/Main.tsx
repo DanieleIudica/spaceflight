@@ -36,7 +36,7 @@ export const Main = () => {
         </Row>
         <Row>
                 {articles.map((article) => (
-                <SingleArticle article={article}/>
+                <SingleArticle key={article.id} article={article}/>
                 ))}
         </Row>
     </Container>

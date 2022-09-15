@@ -21,12 +21,12 @@ export const SingleArticle = ({article}: SingleArticleProps) => {
     const navigate = useNavigate();
 
   return (
-                <Card key={article.id} style={{ width: '18rem' }} className='p-1 m-3'>
+                <Card style={{ width: '18rem' }} className='p-1 m-3'>
                     <Card.Img variant="top" src={article.imageUrl} height="250"/>
                     <Card.Body>
                         <Card.Title>{article.title}</Card.Title>
                         <Card.Text>
-                        <><span className='fw-bold'>Published at:</span> {article.publishedAt}</>
+                        <span className='fw-bold'>Published at:</span> <span>{article.publishedAt}</span>
                         </Card.Text>
                         <Button variant="dark" 
                         className='mt-auto' 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {Container, Row, Col, Card, Button, Alert, Spinner} from 'react-bootstrap'
+import { Row, Col, Card, Button, Alert, Spinner} from 'react-bootstrap'
 import { Article} from '../types/article'
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
     const params = useParams();
     const navigate = useNavigate();
 
-    const [articleDetails, setArticleDetails] = useState<Article[]>([]);
+    const [articleDetails, setArticleDetails] = useState<Article | null>(null);
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -41,11 +41,9 @@ import { useNavigate } from "react-router-dom";
 
   return (
 <>
-<div>ArticleDetails</div>
-
  {/* <div>{articleDetails.title}</div> */}
 
- {/* <Row className="justify-content-center my-5">
+ <Row className="justify-content-center my-5">
          <Col className="text-center" xs={12} md={6}>
              {articleDetails ? (
                  <Card style={{ width: "18rem" }} className="mx-auto">
@@ -61,8 +59,8 @@ import { useNavigate } from "react-router-dom";
                  <Spinner animation="border" variant="success" />
              )}
          </Col>
-     </Row> */}
-<Button
+     </Row>
+        <Button
           variant='dark'
             onClick={() => {
               setTimeout(() => {
@@ -71,7 +69,7 @@ import { useNavigate } from "react-router-dom";
             }}
           >
             BACK TO HOME
-          </Button>
+        </Button>
 </>
   )
 }
