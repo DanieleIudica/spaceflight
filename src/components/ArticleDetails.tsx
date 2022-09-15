@@ -5,13 +5,6 @@ import { Row, Col, Card, Button, Alert, Spinner} from 'react-bootstrap'
 import { Article} from '../types/article'
 import { useNavigate } from "react-router-dom";
 
-
-// interface SingleArticleProps{
-//     article: Article
-// }
-
-
-// export const ArticleDetails = ({article}: SingleArticleProps) => {
     export const ArticleDetails = () => {
 
     const params = useParams();
@@ -40,36 +33,34 @@ import { useNavigate } from "react-router-dom";
       }, []);
 
   return (
-<>
- {/* <div>{articleDetails.title}</div> */}
-
- <Row className="justify-content-center my-5">
-         <Col className="text-center" xs={12} md={6}>
-             {articleDetails ? (
-                 <Card style={{ width: "18rem" }} className="mx-auto">
-                     <Card.Img variant="top" src={articleDetails.imageUrl} />
-                     <Card.Body>
-                         <Card.Title>{articleDetails.title}</Card.Title>
-                         <Card.Text>{articleDetails.summary}</Card.Text>
-                     </Card.Body>
-                 </Card>
-             ) : typeof articleDetails === "undefined" ? (
-                 <Alert variant="danger">Movie non trovato</Alert>
-             ) : (
-                 <Spinner animation="border" variant="success" />
-             )}
-         </Col>
-     </Row>
+    <>
+        <Row className="justify-content-center my-5">
+            <Col className="text-center" xs={12} md={6}>
+                {articleDetails ? (
+                    <Card style={{ width: "18rem" }} className="mx-auto">
+                        <Card.Img variant="top" src={articleDetails.imageUrl} />
+                        <Card.Body>
+                            <Card.Title>{articleDetails.title}</Card.Title>
+                            <Card.Text>{articleDetails.summary}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                ) : typeof articleDetails === "undefined" ? (
+                    <Alert variant="danger">Movie non trovato</Alert>
+                ) : (
+                    <Spinner animation="border" variant="success" />
+                )}
+            </Col>
+        </Row>
         <Button
-          variant='dark'
+            variant='dark'
             onClick={() => {
-              setTimeout(() => {
+                setTimeout(() => {
                 navigate("/");
-              }, 1000);
+                }, 1000);
             }}
-          >
+            >
             BACK TO HOME
         </Button>
-</>
+    </>
   )
 }
